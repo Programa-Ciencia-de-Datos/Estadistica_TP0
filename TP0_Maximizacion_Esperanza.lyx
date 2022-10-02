@@ -103,6 +103,12 @@ PAttern Recongition and MAchine Learning Group (PARMA-Group)
 \end_layout
 
 \begin_layout Standard
+\align center
+Estudiantes : Dennis Luna Acuña- Graciela Rivera Picado - Luis E.
+ Vargas Porras
+\end_layout
+
+\begin_layout Standard
 
 \series bold
 Fecha de entrega:
@@ -322,6 +328,68 @@ Muestre un pantallazo donde verifique su funcionamiento correcto con los
  comentarios asociados, usando los datos de prueba anteriormente generados.
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+En la siguiente figura se puede observar la matriz de membresía la cual
+ corresponde a la matriz binaria 
+\begin_inset Formula $M\in\mathbb{R}^{N\times K}$
+\end_inset
+
+que logra clasificar cada una de las observaciones en k=2 clusters según
+ la verosimilitud calculada con la función realizada en la sección 3.
+ Por cada observación se determina cúal es el cluster más cercano de acuerdo
+ a la probabilidades calculadas.
+ La siguiente estructura lógica se muestra a continuación: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Fotos/4..png
+	lyxscale 50
+	scale 70
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Matriz de membresía M 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es importante mencionar que se utiliza el criterio visto en clase el cuál
+ se representa en la línea 14 y 15 del código donde se define el criterio
+ de pertenecia de cada observación.
+ Además, se realiza directamente la comparación en la matriz de verosimilitud
+ de la campana 1 y 2 respectivamente, para evitar el uso de estructuras
+ de repetición.
+ 
+\end_layout
+
+\end_deeper
 \end_deeper
 \begin_layout Enumerate
 
@@ -380,9 +448,98 @@ for
 \begin_layout Enumerate
 Muestre el resultado para un conjunto de datos de prueba y comente los resultado
 s.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Para esta sección se usa un set de datos generados utilizando las funciones
+ de las secciones anteriores 1 y 2, contemplando los siguientes parámetros
+ 
+\begin_inset Formula $\mu_{1}=10$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma_{1}=1.5$
+\end_inset
+
+, 
+\begin_inset Formula $\mu_{2}=20$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma_{2}=3$
+\end_inset
+
+.
+ La estructura lógica que se utiliza para la generación de esta función
+ se muestra a continuación:
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Fotos/5..png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Matriz de recálculo de parámetros
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Es imporante recalcar que la lógica mostrada utiliza una función que hace
+ que por cada cluster se recalculen los parámetros( mu y sigma) usando la
+ pertenencia de los datos previamente calculados.
+ Lo anterior resulta una matriz new_W 
+\begin_inset Formula $\in\mathbb{R}^{K\times2}$
+\end_inset
+
+ , en este caso con este set de datos, se logra como resultado unos medias
+ de 10.190 y 16.4188 y unas desviaciones estándar de 5.93 y 4.85.
+ Es importante notar que la desviación estándar de la campana 1 tiene una
+ diferencia significativamente más alta en comparación con el desviación
+ estándar inicial.
+ Lo anterior, puede verse como una mejora en el algoritmo en la fase de
+ inicialización de parámetros, ya que el éxito de el E-M algoritmo depende
+ de una buena incialización de parámetros (S.
+ Calderón, 2022) , con el fin de que la convergencia hacia los valores reales
+ no solo se realice con una mayor exactitud, sino que se realice en un menor
+ tiempo computacional al final de cada corrida.
  
 \end_layout
 
+\end_deeper
 \end_deeper
 \begin_layout Enumerate
 
@@ -410,6 +567,406 @@ Grafique las funciones de densidad de probabilidad a las que convergió el
 
 \begin_layout Enumerate
 Comente los resultados, usando algún criterio de correctitud de los mismos.
+\end_layout
+
+\begin_layout Standard
+Los resultados de las 5 corridas con 
+\begin_inset Formula $R=20$
+\end_inset
+
+ iteraciones se muestran en la siguiente tabla.
+ En cada una de ellas se registra cada uno de los parametros obtenidos en
+ quinta iteración y la décima iteración, con el fin de observar los pasos
+ intermedios de la convergencia.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+#Corridas
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+iteración_5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+iteración_10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+iteración_20
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Plots/EM_plot_1_5.svg
+	scale 150
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Plots/EM_plot_1_10.svg
+	scale 150
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Plots/EM_plot_1_20.svg
+	scale 150
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Plots/EM_plot_2_5.svg
+	scale 150
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Plots/EM_plot_2_10.svg
+	scale 150
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Plots/EM_plot_2_20.svg
+	scale 150
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Plots/EM_plot_3_5.svg
+	scale 150
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Plots/EM_plot_3_10.svg
+	scale 150
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Plots/EM_plot_3_20.svg
+	scale 150
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Plots/EM_plot_4_5.svg
+	scale 150
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Plots/EM_plot_4_10.svg
+	scale 150
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Plots/EM_plot_4_20.svg
+	scale 150
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Plots/EM_plot_5_5.svg
+	scale 150
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Plots/EM_plot_5_10.svg
+	scale 150
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Plots/EM_plot_5_20.svg
+	scale 150
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tabla de resultados de las corridas: E-M Algoritmo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al analizar la siguiente tabla podemos observar la evolución que tiene cada
+ una las iteraciones para llegar a una convergencia óptima.
+ Se puede observar que en la mayoría de los casos se inicia con parámetros
+ muy lejanos a los parámetros reales, por lo que confirma nuestra hipótesis
+ de que el algoritmo puede mejorar su proceso de inicialización, ya que
+ las medias y desviaciones estándar seleccionadas aleatoriamente puede afectar
+ la convergencia.
+ Un ejemplo se puede observar en la corrida número 3, donde los puntos de
+ color amarillo (Estimated Bi-Gaussian), nunca se aproximó a las observaciones
+ de color verde (Original Bi-Gaussian), lo cual se puede verse impacto por
+ una desviación estándar muy baja de aproximadamente cero para la primera
+ campana y una desviación estándar alta para la segunda campana.
+ 
+\end_layout
+
+\begin_layout Standard
+Otra observación importante que se analiza es la inestabilidad de las 5
+ corridas (en algunas corridas convergen más lentas que otras e inclusive
+ algunas no convergen), por lo que se probó como criterio de correctitud
+ la aplicación del logaritmo para la función de densidad de probabilidad,
+ sin embargo los resultados se mostraton similares, lo que conviene estudiar
+ y analizar una mejor heurística para la etapa de inicialización de parámetros
+ como posible alternativa.
+ 
 \end_layout
 
 \end_deeper
